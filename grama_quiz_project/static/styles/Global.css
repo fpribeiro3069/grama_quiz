@@ -1,0 +1,57 @@
+
+.HomePage {
+    text-align: center;
+}
+
+.CategoryScreen {
+    text-align: center;
+}
+
+.AnswerScreen {
+    text-align: center;
+}
+
+
+.multipleChoice {
+    padding: 20px;
+    vertical-align: top;
+    text-align: center;
+}
+
+
+.header {
+    padding: 80px; /* some padding */
+    text-align: center; /* center the text */
+    color: black; /* white text color */
+  }
+  
+  /* Increase the font size of the <h1> element */
+  .header h1 {
+    font-size: 80px;
+  }
+  .header h2 {
+    font-size: 40px;
+  }
+
+  ul {
+    list-style-type: none;
+    text-align: center;
+    align-items: center;
+    font-size: 30px;
+  }
+
+  input[type=text] {
+    width: 30%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    text-align: center;
+    box-sizing: border-box;
+  }
+
+  input[type=text]:focus {
+    border: 3px solid #555;
+  }
+
+a {
+    text-decoration: none;
+}

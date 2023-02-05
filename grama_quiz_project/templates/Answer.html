@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="HomePage">
+        <div class="header">
+            <h1>Your answer</h1>
+        </div>
+    
+        <!-- falta saber se e escolha multipla ou texto-->
+        <!--Fazer lista hardcoded das perguntas e ver se e escolha multipla ou resposta-->
+    
+        <form action="/{{teamId}}/questions/{{questionId}}" method="POST">
+            <input name="text" type="text" placeholder="Your Answer">
+            <input type="submit" class="btnNext" value="Answer">
+        </form>
+    
+    
+    
+        <!--escolhas multiplas-->
+        <form action="/{{teamId}}/questions/{{questionId}}" method="POST">
+            <div class="multipleChoice">
+                <input type="radio" name="choice" value="answer1"> Answer1<br>
+                <input type="radio" name="choice" value="answer2"> Answer2<br>
+                <input type="radio" name="choice" value="answer3"> Answer3<br>
+            </div> 
+            <input type="submit" class="btnNext" value="Answer">
+        </form>
+    </div>
+    
+
+{% endblock %}

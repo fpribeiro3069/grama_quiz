@@ -8,7 +8,7 @@
             <div class="category">
                 <h3>{{ category }}</h3>
                 {% for question in questions %}
-                    <a href="{% url 'answer' question.questionNumber %}">Questão {{question.questionNumber}}</a>
+                    <a href="{% url 'answer' question.questionNumber %}">({{ question.questionNumber }}) {{ question.shortName }}</a>
                 {% endfor %}
             </div>
         {% endfor %}

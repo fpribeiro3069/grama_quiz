@@ -1,8 +1,11 @@
 from django.db import models
 
+from datetime import datetime
+
 # Create your models here.
 class Question(models.Model):
     questionNumber = models.IntegerField(unique=True)
+    shortName = models.CharField(max_length=100, default='shortName')
     category = models.CharField(max_length=50)
     correctAnswer = models.CharField(null=False, max_length=500)
     points = models.IntegerField()
@@ -26,6 +29,7 @@ class Team(models.Model):
     )
     hasFinished = models.BooleanField(default=False)
     totalPoints = models.IntegerField(default=-1)
+    submittedAt = models.DateTimeField(default=datetime.now())
 
     def __str__(self):
         return f'Team {self.name}'

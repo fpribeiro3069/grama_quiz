@@ -8,6 +8,8 @@ from .forms import TeamForm
 from .models import Question, Team, Option, Answer
 from .decorators import with_team_created, without_team_created
 
+from datetime import datetime
+
 
 @without_team_created
 def indexView(request):
@@ -24,6 +26,8 @@ def indexView(request):
             request.session['teamId'] = createdTeam.id
 
             return redirect('questions')
+        else:
+            return render(request, 'quiz/index.html', {'form': form})
     
     else:
         form = TeamForm()
@@ -111,6 +115,10 @@ def waitingView(request):
         questions = Question.objects.filter(answer__in=answers, answer__text__iexact=F('correctAnswer'))
 
         team.totalPoints = questions.aggregate(Sum('points'))['points__sum']
+        if team.totalPoints == None:
+            # Team either pressed finish quiz right away or didn't answer anything
+            team.totalPoints = 0
+        team.submittedAt = datetime.now()
         team.save()
     
     allTeamsFinished = not Team.objects.exclude(hasFinished=True).exists()
@@ -128,7 +136,7 @@ def leaderboardView(request):
     if not team.hasFinished:
         return redirect('questions')
     
-    teams = Team.objects.filter(hasFinished=True).order_by('totalPoints')
+    teams = Team.objects.filter(hasFinished=True).order_by('-totalPoints', 'submittedAt')
     
     return render(request, 'quiz/leaderboard.html', {'teams': teams})
     

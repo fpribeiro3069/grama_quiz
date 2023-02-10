@@ -3,6 +3,24 @@ body{
  font-family: "IBM Plex Sans", sans-serif;
 }
 
+.not-found {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.not-found h1 {
+  text-align: center;
+  color: white;
+}
+
+.not-found a {
+  text-align: center;
+  color: #C79E0A;
+  text-decoration: none;
+  cursor: pointer;
+}
+
 #logo {
   margin: 1rem;
 }

@@ -140,6 +140,9 @@ def leaderboardView(request):
     
     return render(request, 'quiz/leaderboard.html', {'teams': teams})
     
+def error404View(request, exception):
+    
+    return render(request, 'quiz/error_404.html', status=404)
 
 # HELPER FUNCTIONS
 

@@ -1,0 +1,22 @@
+{% extends 'quiz/base.html' %}
+
+{% block content %}
+    <div class="questions">
+        <h1>Questões</h1>
+        
+        {% for category, questions in questions_grouped.items %}
+            <div class="category">
+                <h3>{{ category }}</h3>
+                {% for question in questions %}
+                    <a href="{% url 'answer' question.questionNumber %}">Questão {{question.questionNumber}}</a>
+                {% endfor %}
+            </div>
+        {% endfor %}
+
+        <form method="post">
+            {% csrf_token %}
+            <input type="submit" value="Acabar Quiz">
+        </form>
+    </div>
+
+{% endblock %}

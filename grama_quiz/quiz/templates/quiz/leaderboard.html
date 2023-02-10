@@ -1,0 +1,15 @@
+{% extends 'quiz/base.html' %}
+
+{% block content %}
+<div class="leaderboard">
+    {% for team in teams %}
+        <div class="team"> 
+            <span class="place">{{ forloop.counter }}º LUGAR</span>
+            <span class="team-name">{{ team.name }}</span>
+            <span class="team-points">{{ team.totalPoints }} Pontos</span>
+        </div>
+        <hr>
+    {% endfor %}
+</div>
+
+{% endblock %}

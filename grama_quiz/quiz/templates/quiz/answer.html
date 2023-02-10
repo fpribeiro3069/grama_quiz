@@ -1,0 +1,37 @@
+{% extends 'quiz/base.html' %}
+
+{% block content %}
+    <div class="answer">    
+        <h1>Pergunta {{ question.questionNumber }}</h1>
+        
+        {% if isMultiple %}
+        <form class="multiple-question" method="post">
+            {% csrf_token %}
+            <div class="inner">
+                {% for option in options %}
+                    {% if previousAnswer != None and previousAnswer.text == option.value %}
+                        <input checked="true" type="radio" id="answer{{ option.id }}" name="choice" value="{{ option.value }}">
+                        <label for="answer{{ option.id }}">{{ option.value }}</label>
+                    {% else %}
+                        <input type="radio" id="answer{{ option.id }}" name="choice" value="{{ option.value }}">
+                        <label for="answer{{ option.id }}">{{ option.value }}</label>
+                    {% endif %}
+                {% endfor %}
+            </div>
+            <input type="submit" value="Guardar">
+        </form>
+        {% else %}
+        <form class="text-question" method="post">
+            {% csrf_token %}
+            {% if previousAnswer %}
+                <input name="text" type="text" value="{{ previousAnswer.text }}">
+            {% else %}
+                <input name="text" type="text">
+            {% endif %}
+            <input type="submit" value="Guardar">
+        </form>
+        {% endif %}
+    </div>
+    
+
+{% endblock %}

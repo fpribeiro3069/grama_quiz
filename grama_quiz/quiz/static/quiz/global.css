@@ -1,0 +1,271 @@
+body{
+ background: #161616;
+ font-family: "IBM Plex Sans", sans-serif;
+}
+
+#logo {
+  margin: 1rem;
+}
+
+.homepage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.homepage h1 {
+  color: white;
+}
+
+.team-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.team-form input[type=submit] {
+  margin-top: 1rem;
+  background-color: #363636;
+  border: none;
+  border-radius: 3px;
+  padding: 0.5rem 1rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #C79E0A;
+  cursor: pointer;
+}
+
+.team-form > label {
+  color: white;
+}
+
+.questions {
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+}
+
+.questions h1 {
+  color: white;
+  align-self: center;
+  padding-top: 0.5rem;
+}
+
+.questions .category {
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.questions .category h3 {
+  color: white;
+}
+
+.questions .category a {
+  all: unset;
+  color: #C79E0A;
+  margin-left: 3rem;
+}
+
+.questions form {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.questions form input[type=submit] {
+  margin-top: 1rem;
+  background-color: #363636;
+  border: none;
+  border-radius: 3px;
+  padding: 0.5rem 1rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #C79E0A;
+  cursor: pointer;
+}
+
+.answer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.answer h1 {
+  color: white;
+}
+
+.answer .text-question {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.answer .text-question input[type=submit] {
+  margin-top: 1rem;
+  background-color: #363636;
+  border: none;
+  border-radius: 3px;
+  padding: 0.5rem 1rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #C79E0A;
+  cursor: pointer;
+}
+
+.answer .multiple-question {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.answer .multiple-question .inner input[type=radio] {
+  opacity: 0;
+  position: fixed;
+  width: 0
+}
+
+.answer .multiple-question .inner label {
+  display: flex;
+  flex-direction: column;
+  color: #C79E0A;
+  padding: 2rem 3rem;
+  margin-top: 1rem;
+  font-family: sans-serif, Arial;
+  font-size: 16px;
+  border: 2px solid #444;
+  border-radius: 4px;
+}
+
+.answer .multiple-question .inner input[type=radio]:checked + label {
+  border-color: #C79E0A;
+}
+
+.answer .multiple-question input[type=submit] {
+  margin-top: 1rem;
+  background-color: #363636;
+  border: none;
+  border-radius: 3px;
+  padding: 0.5rem 1rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #C79E0A;
+  cursor: pointer;
+}
+
+.waiting {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.waiting h2 {
+  color: white;
+}
+
+.waiting h1 {
+  color: #C79E0A;
+  font-size: 3rem;
+}
+
+.waiting p {
+  color: #444;
+  text-align: center;
+}
+
+.leaderboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.leaderboard .team {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-top: 2rem;
+}
+
+.leaderboard .team .place {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0.2rem;
+}
+
+.leaderboard .team .team-name {
+  color: #C79E0A;
+  text-transform: uppercase;
+  font-size: 2.5rem;
+  margin: 0.2rem;
+}
+
+.leaderboard .team .team-points {
+  color: #444;
+  font-size: 1rem;
+}
+
+.leaderboard hr {
+  width: 90%;
+  border: 1px solid #C79E0A;
+}
+
+.lds-ellipsis {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+.lds-ellipsis div {
+  position: absolute;
+  top: 33px;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: #fff;
+  animation-timing-function: cubic-bezier(0, 1, 1, 0);
+}
+.lds-ellipsis div:nth-child(1) {
+  left: 8px;
+  animation: lds-ellipsis1 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(2) {
+  left: 8px;
+  animation: lds-ellipsis2 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(3) {
+  left: 32px;
+  animation: lds-ellipsis2 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(4) {
+  left: 56px;
+  animation: lds-ellipsis3 0.6s infinite;
+}
+@keyframes lds-ellipsis1 {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes lds-ellipsis3 {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+@keyframes lds-ellipsis2 {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(24px, 0);
+  }
+}

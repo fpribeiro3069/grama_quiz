@@ -1,0 +1,17 @@
+{% extends 'quiz/base.html' %}
+
+{% block content %}
+
+    <div id="logo">
+        <img src="https://www.grama.io/imgs/logo.svg">
+    </div>
+    <div class="homepage">
+        <h1>Grama Quiz</h1>
+        <form method="post" class="team-form">
+            {% csrf_token %}
+            {{ form }}
+            <input type="submit" class = "btnNext" value="Entrar">
+        </form>
+    </div>
+
+{% endblock %}

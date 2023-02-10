@@ -1,0 +1,13 @@
+{% extends 'quiz/base.html' %}
+
+{% block content %}
+<div class="waiting">
+    <h2>PONTOS</h2>
+    <h1>{{ points }}</h1>
+    <p>Vai dando refresh porque não implementei WebSockets, assim que todas as equipas tenham respondido ao quiz é mostrada a <i>leaderboard</i></p>
+    <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+    <p>Não te deixes enganar pela animação</p>
+</div>
+
+
+{% endblock %}

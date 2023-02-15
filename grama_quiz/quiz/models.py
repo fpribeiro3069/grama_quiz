@@ -1,6 +1,6 @@
 from django.db import models
 
-from datetime import datetime
+from django.utils.timezone import now
 
 # Create your models here.
 class Question(models.Model):
@@ -29,7 +29,7 @@ class Team(models.Model):
     )
     hasFinished = models.BooleanField(default=False)
     totalPoints = models.IntegerField(default=-1)
-    submittedAt = models.DateTimeField(default=datetime.now())
+    submittedAt = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return f'Team {self.name}'

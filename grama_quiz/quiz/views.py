@@ -38,9 +38,6 @@ def indexView(request):
 def questionsView(request):
     
     team = getCurrentTeam(request)
-
-    if team.hasFinished:
-        return redirect('waiting')
     
     if request.method == 'POST':
         team = getCurrentTeam(request)
@@ -55,16 +52,13 @@ def questionsView(request):
             questions_grouped[question.category] = []
         questions_grouped[question.category].append(question)
 
-    return render(request, 'quiz/questions.html', {'questions_grouped': questions_grouped})
+    return render(request, 'quiz/questions.html', {'questions_grouped': questions_grouped, 'team': team})
 
 
 @with_team_created
 def answerQuestionView(request, questionId):
     
     team = getCurrentTeam(request)
-
-    if team.hasFinished:
-        return redirect('waiting')
     
     question = get_object_or_404(Question, pk=questionId)
 
@@ -99,7 +93,8 @@ def answerQuestionView(request, questionId):
         'question': question,
         'isMultiple': isMultiple,
         'options': options,
-        'previousAnswer': previousAnswer
+        'previousAnswer': previousAnswer,
+        'team': team
     })
 
 @with_team_created

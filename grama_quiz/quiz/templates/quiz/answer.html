@@ -19,7 +19,9 @@
                     {% endif %}
                 {% endfor %}
             </div>
+            {% if not team.hasFinished %}
             <input type="submit" value="Guardar">
+            {% endif %}
         </form>
         {% else %}
         <form class="text-question" method="post">
@@ -29,7 +31,10 @@
             {% else %}
                 <input name="text" type="text">
             {% endif %}
+
+            {% if not team.hasFinished %}
             <input type="submit" value="Guardar">
+            {% endif %}
         </form>
         {% endif %}
     </div>

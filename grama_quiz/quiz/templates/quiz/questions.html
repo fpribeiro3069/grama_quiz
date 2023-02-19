@@ -13,10 +13,12 @@
             </div>
         {% endfor %}
 
+        {% if not team.hasFinished %}
         <form method="post">
             {% csrf_token %}
             <input type="submit" value="Acabar Quiz">
         </form>
+        {% endif %}
     </div>
 
 {% endblock %}

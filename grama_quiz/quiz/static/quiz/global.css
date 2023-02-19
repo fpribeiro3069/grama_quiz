@@ -168,6 +168,10 @@ input[type=text]:focus {
   transition: 0.5s;
 }
 
+.pontuation {
+  color: #C79E0A;
+}
+
 .answer .multiple-question .inner input[type=radio]:checked + label {
   border-color: #C79E0A;
 }

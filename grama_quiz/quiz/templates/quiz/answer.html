@@ -37,6 +37,14 @@
             {% endif %}
         </form>
         {% endif %}
+        {% if team.hasFinished %}
+            {% if previousAnswer != None and question.correctAnswer|lower == previousAnswer.text|lower %}
+                <p class="pontuation">Correto! Aqui ganharam {{ question.points }} ponto(s).</p>
+            {% else %}
+                <p class="pontuation">Errado! Resposta certa seria <b>{{ question.correctAnswer }}</b>. Perderam {{ question.points }} ponto(s).</p>
+            {% endif %}
+            <a href="{% url 'questions' %}"><input type="submit" value="Perguntas"></a>
+        {% endif %}
     </div>
     
 

@@ -14,11 +14,24 @@
         {% endfor %}
 
         {% if not team.hasFinished %}
-        <form method="post">
+        <form name="submitForm" method="post">
             {% csrf_token %}
-            <input type="submit" value="Acabar Quiz">
+            <input id="submitButton" type="submit" value="Acabar Quiz">
         </form>
         {% endif %}
     </div>
+
+    <script type="text/javascript">
+        var inputElement = document.getElementById("submitButton")
+        inputElement.addEventListener("click", function(event) {
+            if (confirm('Queres mesmo submeter as repostas?')) {
+                document.getElementById("submitForm").submit()
+            } else {
+                event.preventDefault();
+                return false;
+            }
+        })
+    
+    </script>
 
 {% endblock %}

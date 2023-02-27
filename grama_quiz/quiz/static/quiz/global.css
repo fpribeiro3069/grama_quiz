@@ -115,6 +115,10 @@ input[type=text]:focus {
   cursor: pointer;
 }
 
+.questions .category .has-answered {
+  color: #504005;
+}
+
 .questions form {
   display: flex;
   justify-content: center;
@@ -170,6 +174,7 @@ input[type=text]:focus {
 
 .pontuation {
   color: #C79E0A;
+  text-align: center;
 }
 
 .answer .multiple-question .inner input[type=radio]:checked + label {

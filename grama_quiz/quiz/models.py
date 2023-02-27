@@ -11,7 +11,7 @@ class Question(models.Model):
     points = models.IntegerField()
 
     def __str__(self):
-        return f'Question {self.questionNumber} worth {self.points} points'
+        return f'Question {self.questionNumber} worth {self.points} points. {self.shortName}'
     
 class Option(models.Model):
     value = models.CharField(max_length=100)
@@ -30,6 +30,7 @@ class Team(models.Model):
     hasFinished = models.BooleanField(default=False)
     totalPoints = models.IntegerField(default=-1)
     submittedAt = models.DateTimeField(auto_now_add=True)
+    isAdmin = models.BooleanField(default=False)
 
     def __str__(self):
         return f'Team {self.name}'

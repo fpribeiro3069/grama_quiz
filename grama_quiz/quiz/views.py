@@ -46,11 +46,15 @@ def questionsView(request):
         return redirect('waiting')
 
     questions = Question.objects.all().order_by('questionNumber', 'category')
+
     questions_grouped = {}
     for question in questions:
         if question.category not in questions_grouped:
             questions_grouped[question.category] = []
-        questions_grouped[question.category].append(question)
+
+        hasAnswered = Answer.objects.filter(team=team, question=question).exists()
+        print(f"Question {question.questionNumber} isAnswered: {hasAnswered}")
+        questions_grouped[question.category].append((question, hasAnswered))
 
     return render(request, 'quiz/questions.html', {'questions_grouped': questions_grouped, 'team': team})
 
@@ -65,8 +69,6 @@ def answerQuestionView(request, questionId):
     options = Option.objects.filter(question=question)
     isMultiple = options.exists()
 
-    
-
     try:
         previousAnswer = Answer.objects.get(question=question, team=team)
     except Answer.DoesNotExist:
@@ -75,6 +77,11 @@ def answerQuestionView(request, questionId):
     if request.method == 'POST':
 
         answerText = request.POST.get('choice' if isMultiple else 'text')
+
+        print(f"AnswerText {answerText}")
+
+        if not answerText:
+            return redirect('questions')
 
         if previousAnswer:
             previousAnswer.text = answerText
@@ -131,7 +138,7 @@ def leaderboardView(request):
     if not team.hasFinished:
         return redirect('questions')
     
-    teams = Team.objects.filter(hasFinished=True).order_by('-totalPoints', 'submittedAt')
+    teams = Team.objects.filter(hasFinished=True, isAdmin=False).order_by('-totalPoints', 'submittedAt')
     
     return render(request, 'quiz/leaderboard.html', {'teams': teams})
     

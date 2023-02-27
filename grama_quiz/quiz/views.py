@@ -60,7 +60,7 @@ def answerQuestionView(request, questionId):
     
     team = getCurrentTeam(request)
     
-    question = get_object_or_404(Question, pk=questionId)
+    question = get_object_or_404(Question, questionNumber=questionId)
 
     options = Option.objects.filter(question=question)
     isMultiple = options.exists()
